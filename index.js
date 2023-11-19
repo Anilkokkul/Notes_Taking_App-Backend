@@ -11,6 +11,7 @@ const corsOptions = {
   origin: [
     "http://localhost:3000",
     "https://master--lambent-hotteok-bde6bb.netlify.app",
+    "https://lambent-hotteok-bde6bb.netlify.app/",
   ],
   credentials: true,
   methods: ["GET", "POST", "DELETE", "PUT"],
