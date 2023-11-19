@@ -54,6 +54,8 @@ exports.loginUser = async (req, res) => {
         let token = jwt.sign({ _id: userExist._id }, process.env.SECRET_KEY);
         res.cookie("accessToken", token, {
           httpOnly: true,
+          secure: true,
+          sameSite: "none",
           expires: new Date(Date.now() + 86400000),
         });
         return res.status(200).send({
