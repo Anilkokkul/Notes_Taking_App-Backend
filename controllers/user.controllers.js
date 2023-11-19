@@ -8,10 +8,9 @@ exports.registerUser = async (req, res) => {
     const payload = req.body;
 
     const user = await users.findOne({ email: payload.email });
-    console.log(payload.password);
 
     if (user) {
-      return res.status(409).send({
+      return res.status(200).send({
         message: "An account is already registered with your email",
       });
     }
@@ -24,14 +23,14 @@ exports.registerUser = async (req, res) => {
     newUser
       .save()
       .then((user) => {
-        res.status(201).send({
+        return res.status(201).send({
           message: "Account created successfully",
           user: user,
         });
       })
       .catch((error) => {
         res.status(409).send({
-          error: "Error creating the user",
+          message: "Error creating the user",
           Error: error,
         });
       });

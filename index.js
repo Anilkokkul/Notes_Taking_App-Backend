@@ -8,7 +8,10 @@ const cookieParser = require("cookie-parser");
 dotenv.config();
 const app = express();
 const corsOptions = {
-  origin: ["http://localhost:3000"],
+  origin: [
+    "http://localhost:3000",
+    "https://master--lambent-hotteok-bde6bb.netlify.app",
+  ],
   credentials: true,
   methods: ["GET", "POST", "DELETE", "PUT"],
 };
