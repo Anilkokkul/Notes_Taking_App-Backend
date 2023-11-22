@@ -79,7 +79,11 @@ exports.loginUser = async (req, res) => {
 
 exports.userLogout = async (req, res) => {
   try {
-    await res.clearCookie("accessToken");
+    await res.clearCookie("accessToken", {
+      expires: new Date(0),
+      secure: true,
+      httpOnly: true,
+    });
     res.status(200).send({
       message: "User Logged-Out Successfully",
     });
